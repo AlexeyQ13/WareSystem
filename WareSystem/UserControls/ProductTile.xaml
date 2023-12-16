@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="WareSystem.UserControls.ProductTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WareSystem.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" 
+             d:DesignWidth="96"
+             Background="WhiteSmoke">
+    <Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.85*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Image Stretch="Uniform" d:Source="/Resources/products/noimage.png">
+                <Image.Source>
+                    <Binding Path="ImagePath">
+                        <Binding.TargetNullValue>
+                            <ImageSource>/Resources/products/noimage.png</ImageSource>
+                        </Binding.TargetNullValue>
+                    </Binding>
+                </Image.Source>
+            </Image>
+            <StackPanel Grid.Row="1">
+                <Label d:Content="700$" Content="{Binding Price}"/>
+                <Label d:Content="Название" Content="{Binding Title}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
